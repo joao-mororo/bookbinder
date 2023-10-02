@@ -26,6 +26,7 @@
     align-items: flex-start;
     gap: 4px;
     height: 11rem;
+    min-width: 10rem;
 }
 
 .title {

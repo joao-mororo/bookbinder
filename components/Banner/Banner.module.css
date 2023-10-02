@@ -1,0 +1,24 @@
+.banner {
+    background-image: linear-gradient(87deg, #090937 0%, rgba(0, 0, 0, 0) 100%), url('/images/banner.jpeg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 50vh;
+    border-radius: 8px;
+    border: 1px rgba(9, 9, 55, 0.2) solid;
+    margin: 3rem 0;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.banner p:nth-child(1) {
+    color: #F0B861;
+}

@@ -1,16 +1,6 @@
 import React from "react";
 import * as api from "@/api";
-import {
-  Container,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-  Skeleton,
-  Box,
-} from "@mui/material";
+import { Container } from "@mui/material";
 import BookCard from "@/components/BookCard";
 
 const Results = async ({ params }) => {
@@ -26,6 +16,7 @@ const Results = async ({ params }) => {
       ) : (
         books.map((book) => (
           <BookCard
+            key={book.key.replace("/works/", "")}
             href={`/book/${book.key.replace("/works/", "")}`}
             img={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
             title={book.title}
