@@ -1,9 +1,7 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import * as api from '@/api';
-import { Container } from '@mui/material';
 import Banner from '@/components/Banner';
 import BooksRow from '@/components/BooksRow';
+import { Container } from '@mui/material';
+import styles from './page.module.css'
 
 export default async function Home() {
 
