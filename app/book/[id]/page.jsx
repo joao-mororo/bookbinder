@@ -1,6 +1,7 @@
 import React from "react";
 import * as api from "@/api";
-import { Box, Chip, Container } from "@mui/material";
+import { Box, Chip, Container, Link } from "@mui/material";
+import { BiLinkExternal } from "react-icons/bi";
 
 const Book = async ({ params }) => {
   const book = await api.getBookById(params.id);
@@ -41,6 +42,12 @@ const Book = async ({ params }) => {
           <Chip label={`Estão lendo: ${shelves.counts.currently_reading}`} />
           <Chip label={`Já leram: ${shelves.counts.already_read}`} />
         </p>
+        {book.links &&
+          book.links.map((link, i) => (
+            <Link key={i} target="_blank" href={link.url} underline="always">
+              {link.title} <BiLinkExternal />
+            </Link>
+          ))}
       </Box>
     </Container>
   );
