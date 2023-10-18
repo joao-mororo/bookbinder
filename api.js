@@ -12,6 +12,24 @@ export async function getBookById(id) {
     return book
 }
 
+export async function getBookEditions(id) {
+    const res = await fetch(`https://openlibrary.org/works/${id}/editions.json`)
+    const editions = await res.json()
+    return editions
+}
+
+export async function getBookShelves(id) {
+    const res = await fetch(`https://openlibrary.org/works/${id}/bookshelves.json`)
+    const shelves = await res.json()
+    return shelves
+}
+
+export async function getBookRatings(id) {
+    const res = await fetch(`https://openlibrary.org/works/${id}/ratings.json`)
+    const ratings = await res.json()
+    return ratings
+}
+
 export async function getBooksBySubject(subject) {
     const res = await fetch(`https://openlibrary.org/subjects/${subject}.json?details=true`)
     const books = await res.json()
