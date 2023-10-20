@@ -1,5 +1,6 @@
 import React from "react";
 import * as api from "@/api";
+import Ratings from "./Ratings";
 import { Box, Chip, Container, Link } from "@mui/material";
 import { BiLinkExternal } from "react-icons/bi";
 
@@ -15,16 +16,18 @@ const Book = async ({ params }) => {
   return (
     <Container maxWidth="lg" sx={{ display: "flex", margin: "2rem auto" }}>
       <Box sx={{ width: "30%", textAlign: "center" }}>
-        <img
-          style={{ borderRadius: "10px" }}
-          src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`}
-        />
+        {book.covers && (
+          <img
+            style={{ borderRadius: "10px" }}
+            src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`}
+          />
+        )}
+        {ratings.summary.average && <Ratings ratings={ratings} />}
       </Box>
       <Box
         sx={{
           width: "70%",
           display: "flex",
-          justifyContent: "center",
           flexDirection: "column",
           gap: "1rem",
           padding: "1rem",
@@ -34,14 +37,20 @@ const Book = async ({ params }) => {
           <h1>{book.title}</h1>
           <h3 style={{ opacity: ".7" }}>{author.name}</h3>
         </div>
+
+        <p>
+          {ratings.summary.average && (
+            <Chip label={`Avaliação: ${ratings.summary.average.toFixed(1)}`} />
+          )}{" "}
+          <Chip label={`Querem ler: ${shelves.counts.want_to_read}`} />{" "}
+          <Chip label={`Estão lendo: ${shelves.counts.currently_reading}`} />{" "}
+          <Chip label={`Já leram: ${shelves.counts.already_read}`} />{" "}
+        </p>
+
         {book.description && (
           <pre style={{ whiteSpace: "pre-wrap" }}>{book.description.value}</pre>
         )}
-        <p>
-          <Chip label={`Querem ler: ${shelves.counts.want_to_read}`} />
-          <Chip label={`Estão lendo: ${shelves.counts.currently_reading}`} />
-          <Chip label={`Já leram: ${shelves.counts.already_read}`} />
-        </p>
+
         {book.links &&
           book.links.map((link, i) => (
             <Link key={i} target="_blank" href={link.url} underline="always">
