@@ -4,11 +4,21 @@ import Ratings from "./Ratings";
 import { Box, Chip, Container, Link } from "@mui/material";
 import { BiLinkExternal } from "react-icons/bi";
 
+// [...]
+// Mas, você me ensinou a ter amor próprio
+// E, por amor próprio, eu não aceito essa fria liquidez
+// - Boa noite.
+// - Ok, boa noite.
+// Hum, boa noite.
+
 const Book = async ({ params }) => {
-  const book = await api.getBookById(params.id);
-  const editions = await api.getBookEditions(params.id);
-  const shelves = await api.getBookShelves(params.id);
-  const ratings = await api.getBookRatings(params.id);
+  const [book, editions, shelves, ratings] = await Promise.all([
+    api.getBookById(params.id),
+    api.getBookEditions(params.id),
+    api.getBookShelves(params.id),
+    api.getBookRatings(params.id),
+  ]);
+
   const author = await api.getDataOfAuthor(
     book.authors[0].author.key.replace("/authors/", "")
   );
@@ -42,9 +52,9 @@ const Book = async ({ params }) => {
           {ratings.summary.average && (
             <Chip label={`Avaliação: ${ratings.summary.average.toFixed(1)}`} />
           )}{" "}
-          <Chip label={`Querem ler: ${shelves.counts.want_to_read}`} />{" "}
-          <Chip label={`Estão lendo: ${shelves.counts.currently_reading}`} />{" "}
-          <Chip label={`Já leram: ${shelves.counts.already_read}`} />{" "}
+          <Chip label={`${shelves.counts.want_to_read} querem ler`} />{" "}
+          <Chip label={`${shelves.counts.currently_reading} estão lendo`} />{" "}
+          <Chip label={`${shelves.counts.already_read} já leram`} />{" "}
         </p>
 
         {book.description && (
