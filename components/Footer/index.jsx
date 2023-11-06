@@ -1,15 +1,14 @@
 import React from "react";
-import { Box, Container } from "@mui/material";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div style={{ backgroundColor: "rgb(10, 10, 10)", color: "#fff" }}>
-      <Container maxWidth="lg" sx={{ display: "flex" }}>
-        <div className={styles.wrapper}></div>
+    <div className={styles.container}>
+      <div style={{ display: "flex", width: "1200px" }}>
+        <div className={styles.wrapper}>teste</div>
         <div className={styles.wrapper}>Footer</div>
-        <div className={styles.wrapper}></div>
-      </Container>
+        <div className={styles.wrapper}>tese</div>
+      </div>
     </div>
   );
 };
