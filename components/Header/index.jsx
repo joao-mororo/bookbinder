@@ -2,6 +2,7 @@ import Link from "next/link";
 import Search from "./Search";
 import { Box, Button, Container, TextField } from "@mui/material";
 import { BiUser, BiHeart, BiCart } from "react-icons/bi";
+import styles from "./Header.module.css";
 
 const Header = () => {
   return (
@@ -21,16 +22,23 @@ const Header = () => {
       <Box sx={{ width: "60%", display: "flex", justifyContent: "center" }}>
         <Search />
       </Box>
-      <Box sx={{ width: "20%", display: "flex", justifyContent: "center" }}>
-        <Button>
+      <Box
+        sx={{
+          width: "20%",
+          display: "flex",
+          justifyContent: "center",
+          gap: "5px",
+        }}
+      >
+        <button className={styles.btn_icon}>
           <BiUser />
-        </Button>
-        <Button>
+        </button>
+        <button className={styles.btn_icon}>
           <BiHeart />
-        </Button>
-        <Button>
+        </button>
+        <button className={styles.btn_icon}>
           <BiCart />
-        </Button>
+        </button>
       </Box>
     </Container>
   );

@@ -1,0 +1,14 @@
+.btn_icon {
+    border: solid 1px #ccc;
+    padding: 1rem;
+    border-radius: var(--border-radius-widget);
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    transition: var(--transition-default);
+    background-color: var(--color-grey);
+}
+
+.btn_icon:hover {
+    border: solid 1px var(--color-accent);
+}

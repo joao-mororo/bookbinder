@@ -11,6 +11,11 @@ const Search = () => {
 
   const submit = (e) => {
     e.preventDefault();
+
+    if (input === "") {
+      return;
+    }
+
     console.log("buscando");
     const q = input.replaceAll(" ", "+");
     push(`/results/${q}`);

@@ -5,6 +5,10 @@
   --color-grey: #F4F4FF;
   --color-text: #000000;
   --color-bg: #FFFFFF;
+
+  --border-radius-widget: 50px;
+
+  --transition-default: .2s;
 }
 
 * {

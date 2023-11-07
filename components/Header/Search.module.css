@@ -2,16 +2,36 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: 5px;
     width: 100%;
-    border-radius: 50px;
 }
 
 .form input {
-    padding: .5rem;
+    padding: 1rem;
     width: 90%;
+    border-radius: var(--border-radius-widget);
+    caret-color: var(--color-accent);
+    border: none;
+    outline: solid 1px #ccc;
+    background-color: var(--color-grey);
+    transition: var(--transition-default);
+}
+
+.form input:focus {
+    outline: solid 1px var(--color-accent);
 }
 
 .form button {
     padding: .5rem;
-    width: 10%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--border-radius-widget);
+    cursor: pointer;
+    background-color: var(--color-grey);
+    border: solid 1px #ccc;
+    transition: var(--transition-default);
+}
+
+.form button:hover {
+    border: solid 1px var(--color-accent);
 }
